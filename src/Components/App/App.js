@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import styles from "./App.module.css";
 import SearchResults from "../SearchResults/SearchResults";
 import Playlist from "../Playlist/Playlist";
+import SearchBar from "../SearchBar/SearchBar";
 
 function App() {
   const [searchResults, setSearchResults] = useState([
@@ -59,15 +60,17 @@ function App() {
     const trackURIs = playlistTracks.map((t) => t.uri);
   }
 
+  function search(term){
+    console.log(term);
+  }
+
     return (
         <div>
         <h1>
           Ja<span className={styles.highlight}>mmm</span>ing
         </h1>
         <div className={styles.App}>
-
-          {/* <!-- Add a SearchBar component --> */}
-          
+          <SearchBar onSearch={search} />
           <div className={styles["App-playlist"]}>
           <SearchResults userSearchResults={searchResults} onAdd={addTrack}/>
           <Playlist 
