@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styles from "./SearchBar.module.css";
 
-function SearchBar () {
+function SearchBar (props) {
   const [term, setTerm] = useState("");
 
   function passTerm(){
